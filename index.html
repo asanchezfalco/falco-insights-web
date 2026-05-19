@@ -505,7 +505,7 @@ var JETPACK_MU_WPCOM_SETTINGS = {"assetsUrl":"/wp-content/mu-plugins/wpcomsh/jet
 .falco-partners-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem 2rem;
+  gap: 5rem 2rem;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
@@ -522,6 +522,17 @@ var JETPACK_MU_WPCOM_SETTINGS = {"assetsUrl":"/wp-content/mu-plugins/wpcomsh/jet
   height: 120px;
   max-width: 200px;
   object-fit: contain;
+}
+.falco-partner-item.is-zoom img {
+  transform: scale(1.4);
+  transform-origin: center;
+}
+.falco-partner-item.is-zoom-xl img {
+  transform: scale(2.8);
+  transform-origin: center;
+}
+.falco-partner-item.is-shift-up img {
+  transform: translateY(-14px);
 }
 .falco-partner-item h3 {
   font-size: 0.85rem;
@@ -553,17 +564,17 @@ var JETPACK_MU_WPCOM_SETTINGS = {"assetsUrl":"/wp-content/mu-plugins/wpcomsh/jet
     <h3>School of Economic Intelligence (SEI)</h3>
   </div>
 
-  <div class="falco-partner-item">
-    <img src="/wp-content/uploads/2025/05/logo-indesec.jpg" alt="INDESEC">
+  <div class="falco-partner-item is-zoom-xl">
+    <img src="/wp-content/uploads/genericas/indesec-sin-fondo.webp" alt="INDESEC">
     <h3>Asociación de Jóvenes en Inteligencia, Defensa y Seguridad (INDESEC)</h3>
   </div>
 
-  <div class="falco-partner-item">
+  <div class="falco-partner-item is-shift-up">
     <img src="/wp-content/uploads/genericas/Fomento_de_Construcciones_y_Contratas_(FCC)_logo.svg.png" alt="FCC">
     <h3>Fomento de Construcciones y Contratas (FCC)</h3>
   </div>
 
-  <div class="falco-partner-item">
+  <div class="falco-partner-item is-zoom">
     <img src="/wp-content/uploads/genericas/LISA Institute Logo.png" alt="LISA Institute">
     <h3>LISA Institute</h3>
   </div>
