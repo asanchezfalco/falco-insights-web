@@ -1,2 +1,11 @@
 # Local Netlify folder
 .netlify
+
+# Netlify despliega TODO lo que hay en el repo. Cualquier archivo commiteado queda
+# accesible en falcoinsights.com aunque no esté enlazado desde ninguna página.
+
+# Material de trabajo interno: propuestas comerciales, precios e informes de cliente.
+contexto(claude)/
+
+# macOS
+.DS_Store

@@ -1,0 +1,12 @@
+# Entradas de ejemplo de WordPress eliminadas -> blog
+/2025/05/18/crecimiento-desbloqueado          /blog/   301
+/2025/05/18/el-arte-de-la-conexion            /blog/   301
+/2025/05/18/magia-de-la-colaboracion          /blog/   301
+/2025/05/18/mas-alla-del-obstaculo            /blog/   301
+/2025/05/18/triunfo-del-trabajo-en-equipo     /blog/   301
+/2025/05/18/ventaja-adaptativa                /blog/   301
+/2025/*                                       /blog/   301
+
+# Páginas legacy de WordPress (autor y categorías) -> blog
+/author/*                                     /blog/   301
+/category/*                                   /blog/   301

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /blog/_plantillas/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+
+Sitemap: https://falcoinsights.com/sitemap.xml

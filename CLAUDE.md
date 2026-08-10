@@ -98,28 +98,33 @@ La web se migró de WordPress a HTML estático usando un plugin de exportación.
 ├── index.html                          # Homepage
 ├── about/index.html                    # Sobre nosotros
 ├── servicios-de-inteligencia/index.html # Servicios de inteligencia
+├── servicios-de-ciberseguridad/index.html # Servicios de ciberseguridad
 ├── influenza-by-falco-insights/index.html # Página de producto Influenza
 ├── politica-de-privacidad/index.html   # Política de privacidad
 ├── terminos-y-condiciones/index.html   # Términos y condiciones
-├── 2025/05/18/                         # Blog posts (contenido de prueba)
-│   ├── crecimiento-desbloqueado/
-│   ├── el-arte-de-la-conexion/
-│   ├── magia-de-la-colaboracion/
-│   ├── mas-alla-del-obstaculo/
-│   ├── triunfo-del-trabajo-en-equipo/
-│   └── ventaja-adaptativa/
-├── author/                             # Páginas de autor (WordPress legacy)
-├── category/                           # Categorías (WordPress legacy)
+├── blog/                               # Blog
+│   ├── index.html                      # Listado con filtros por categoría
+│   ├── _plantillas/                    # Material de trabajo (excluido en robots.txt)
+│   │   ├── LEEME.md                    # Cómo publicar una entrada
+│   │   ├── post.html                   # Plantilla de entrada
+│   │   └── tarjeta.html                # Plantilla de tarjeta del listado
+│   └── <slug>/index.html               # Una carpeta por entrada publicada
+├── _redirects                          # Redirecciones de Netlify (URLs legacy → /blog/)
+├── robots.txt / sitemap.xml
 ├── wp-content/                         # Assets de plugins WordPress
 └── wp-includes/                        # Assets de sistema WordPress
 ```
+
+Las entradas de ejemplo de WordPress (`/2025/05/18/*`, `/author/*`, `/category/*`) se han
+eliminado y redirigen a `/blog/` con un 301 definido en `_redirects`.
 
 ### Páginas Principales
 1. **Homepage** (`/`): Presentación de Falco Insights, productos y servicios, fundadores, entidades asociadas
 2. **Sobre nosotros** (`/about/`): Descripción de la empresa, áreas de especialización, perfiles de fundadores
 3. **Servicios** (`/servicios-de-inteligencia/`): Defensa cognitiva, contra-influencia, consultoría estratégica, inteligencia para alta dirección
 4. **Influenza** (`/influenza-by-falco-insights/`): Página de producto de la plataforma Influenza
-5. **Legal**: Política de privacidad y términos
+5. **Blog** (`/blog/`): Análisis, actualidad, metodología y novedades de Influenza. Ver `blog/_plantillas/LEEME.md` para publicar
+6. **Legal**: Política de privacidad y términos
 
 ### Tema y Estilo
 - WordPress TwentyTwentyfour theme (exportado a estático)
@@ -129,7 +134,8 @@ La web se migró de WordPress a HTML estático usando un plugin de exportación.
 
 ### Notas Importantes
 - **Formularios de contacto**: Se eliminaron porque no funcionan en sitios estáticos. Si se quieren recuperar, usar Netlify Forms o un servicio externo.
-- **Blog posts**: Los 6 posts en `/2025/05/18/` parecen contenido de prueba/placeholder, no contenido real de la empresa.
+- **Blog**: Cada entrada es una carpeta `blog/<slug>/index.html` autocontenida (copia de `_plantillas/post.html`). Publicar son tres pasos: crear la página, añadir la tarjeta en `blog/index.html` y añadir la URL a `sitemap.xml`. El procedimiento completo está en `blog/_plantillas/LEEME.md`.
+- **Metadatos heredados**: La plantilla se creó copiando `/servicios-de-ciberseguridad/`. Al crear páginas nuevas por copia, revisar que no arrastren `canonical`, `shortlink`, `meta description` ni bloque `Jetpack Open Graph Tags` de la página original.
 - **Legacy WordPress**: Las carpetas `wp-content/` y `wp-includes/` contienen assets necesarios para el estilo y funcionalidad del sitio. No eliminar sin verificar dependencias.
 
 ---
@@ -155,8 +161,15 @@ La web se migró de WordPress a HTML estático usando un plugin de exportación.
   - /2025/05/18/el-arte-de-la-conexion/
   - /2025/05/18/mas-alla-del-obstaculo/
 
-### 3. Mejoras Web Potenciales
-- [ ] Revisar y actualizar contenido del blog (los posts actuales son placeholder)
+### 3. Blog ✅ COMPLETADO (2026-08-10)
+- [x] Listado `/blog/` con filtros por categoría, tarjetas y estado vacío automático
+- [x] Plantillas de entrada y de tarjeta + manual de publicación (`blog/_plantillas/LEEME.md`)
+- [x] Redirecciones 301 de las URLs legacy de WordPress a `/blog/`
+- [x] Backfill de 4 entradas a partir de las publicaciones de LinkedIn
+- [ ] Publicar la entrada de Ciberwall + South Summit (texto original incompleto: falta apellido y cargo de "José Ángel" y el cierre de South Summit)
+- [ ] Publicar la entrada de Due Diligence (carpeta de origen vacía)
+
+### 4. Mejoras Web Potenciales
 - [ ] Evaluar si los formularios de contacto deben restaurarse (Netlify Forms)
 - [ ] Limpiar assets WordPress innecesarios si es posible
 - [ ] Verificar que todas las imágenes y recursos cargan correctamente en producción
